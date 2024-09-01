@@ -11,3 +11,21 @@ let data = [];
 
 //Fetch from generate random user from API
 // "https://randomuser.me/"
+
+async function getRandomPerson() {
+  const response = await fetch('https://randomuser.me/api');
+  const data = await response.json();
+
+  const person = data.results[0];
+  
+  const newPerson = {
+    name:  `${person.name.first} ${person.name.last}`,
+    money: Math.floor(Math.random() * 1000000)
+  };
+  console.log(newPerson);
+}
+
+getRandomPerson();
+getRandomPerson();
+getRandomPerson();
+
