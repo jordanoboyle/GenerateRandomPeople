@@ -59,7 +59,34 @@ function updateDOM(providedData = data) {
   });
 }
 
+//Double the Money:
+function doubleMoney() {
+  data = data.map((person) => {
+    return {...person, money: person.money * 2}; //Spread operator used here, 
+  });
+  updateDOM(); //This is actually doing something behind the seens
+  //While it cannot be seen, it is mapping through the data displayed and updating the DOM with our information
+  // let i = 0;
+  // let doubledMoney = data[i].map((name, value) => {
+   
+  //   return value * 2;
+  // })
+  // return doubledMoney;
+}
+console.log(doubleMoney(data));
+
 //Format the Money
 function moneyFormat(number) {
+  //Formula acquired from StackOverflow
   return '$' + (number).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
+
+//Event Listeners:
+//Adding a Random Person
+addUserButton.addEventListener('click', (e) =>{
+  getRandomPerson();
+});
+doubleBtn.addEventListener('click', (e) => {
+  doubleMoney();
+})
+
