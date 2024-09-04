@@ -53,8 +53,13 @@ function updateDOM(providedData = data) {
   providedData.forEach(person => {
     const element = document.createElement('div');  //creates an element within our html
     element.classList.add('person');  //creates a class within the element/tag created above
-    element.innerHTML = `<strong> ${person.name} </strong> ${person.money}`; //creates the innerHTML of the element created above.
+    element.innerHTML = `<strong> ${person.name} </strong> ${moneyFormat(person.money)}`; //creates the innerHTML of the element created above.
     
     main.appendChild(element);
   });
+}
+
+//Format the Money
+function moneyFormat(number) {
+  return '$' + (number).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
