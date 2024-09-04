@@ -66,14 +66,19 @@ function doubleMoney() {
   });
   updateDOM(); //This is actually doing something behind the seens
   //While it cannot be seen, it is mapping through the data displayed and updating the DOM with our information
-  // let i = 0;
-  // let doubledMoney = data[i].map((name, value) => {
-   
-  //   return value * 2;
-  // })
-  // return doubledMoney;
 }
 console.log(doubleMoney(data));
+
+//Sort By Richest:
+function sortByRichest() {
+  data.sort((a, b) => {
+    return b.money - a.money;
+    //here we are sorting by the richest using sort()
+    //In JS sort() is built on sorting strings. You need the compare function provided above to get
+    //the results desire, comparing values to each other. 
+  });
+  updateDOM();
+}
 
 //Format the Money
 function moneyFormat(number) {
@@ -88,5 +93,8 @@ addUserButton.addEventListener('click', (e) =>{
 });
 doubleBtn.addEventListener('click', (e) => {
   doubleMoney();
-})
+});
+sortBtn.addEventListener('click', (e) => {
+  sortByRichest();
+});
 
