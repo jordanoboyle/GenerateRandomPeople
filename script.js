@@ -2,7 +2,7 @@
 const main = document.getElementById('main');
 const addUserButton = document.getElementById('add-user');
 const doubleBtn = document.getElementById('double-money');
-const showMillionairesBtn = document.getElementById('show-millaires');
+const showMillionairesBtn = document.getElementById('show-millionaires');
 const sortBtn = document.getElementById('sort-people');
 const calculateWeatlthBtn = document.getElementById('calculate-wealth');
 
@@ -69,6 +69,18 @@ function doubleMoney() {
 }
 console.log(doubleMoney(data));
 
+//Show the Millionaires:
+function showTheMillionaires() {
+  let mills = data.filter(function(person) {
+    if (person.money > 1000000) {
+      return {...person};
+    }
+  });
+  console.log(mills)
+}
+
+
+
 //Sort By Richest:
 function sortByRichest() {
   data.sort((a, b) => {
@@ -96,5 +108,8 @@ doubleBtn.addEventListener('click', (e) => {
 });
 sortBtn.addEventListener('click', (e) => {
   sortByRichest();
+});
+showMillionairesBtn.addEventListener('click', (e) => {
+  showTheMillionaires();
 });
 
