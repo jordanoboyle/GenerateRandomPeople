@@ -39,7 +39,6 @@ getRandomPerson();
 //addData to the data array above:
 function addData(personData) {
   data.push(personData);
-
   updateDOM();
 }
 
@@ -72,7 +71,6 @@ function sumOfWealth() {
   updateDOM();
 }
 
-
 //Double the Money:
 function doubleMoney() {
   data = data.map((person) => {
@@ -81,7 +79,6 @@ function doubleMoney() {
   updateDOM(); //This is actually doing something behind the seens
   //While it cannot be seen, it is mapping through the data displayed and updating the DOM with our information
 }
-// console.log(doubleMoney(data));
 
 //Show the Millionaires (using .filter()):
 function showTheMillionaires() {
@@ -91,16 +88,7 @@ function showTheMillionaires() {
     }
   });
   updateDOM();
-  // let mills = data.filter(function(person) {
-  //   if (person.money > 1000000) {
-  //     return {...person};
-  //   }
-  // });
-  // console.log(mills);
-  
 }
-
-
 
 //Sort By Richest:
 function sortByRichest() {
