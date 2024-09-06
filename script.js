@@ -9,7 +9,7 @@ const calculateWeatlthBtn = document.getElementById('calculate-wealth');
 
 
 let data = [];
-let sum = 100;
+let wealth = 0;
 
 //Fetch from generate random user from API
 // "https://randomuser.me/"
@@ -42,15 +42,12 @@ function addData(personData) {
 
   updateDOM();
 }
-// Testing
-console.log(data);
-
 
 //Update the DOM:
-function updateDOM(providedData = data, providedSum = sum) {
+function updateDOM(providedData = data, providedSum = wealth) {
   //Clear main DIV tag
   main.innerHTML = '<h2><strong>Personal</strong> Wealth</h2>';
-  console.log(main.innerHTML);
+  // console.log(main.innerHTML);
 
   providedData.forEach(person => {
     const element = document.createElement('div');  //creates an element within our html
@@ -68,6 +65,13 @@ function updateDOM(providedData = data, providedSum = sum) {
 }
 
 //Get the SUM of All:
+function sumOfWealth() {
+  console.log(data);
+  wealth = data.reduce((accumulator, person) => (accumulator += person.money), 0);  //watch where you put the zero in reduce()
+  console.log(moneyFormat(wealth));
+  updateDOM();
+}
+
 
 //Double the Money:
 function doubleMoney() {
@@ -129,6 +133,6 @@ sortBtn.addEventListener('click', (e) => {
 showMillionairesBtn.addEventListener('click', (e) => {
   showTheMillionaires();
 });
-// calculateWeatlthBtn.addEventListener('click', (e) => {
-//   sumOfWealth();
-// })
+calculateWeatlthBtn.addEventListener('click', (e) => {
+  sumOfWealth();
+})
