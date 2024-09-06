@@ -69,14 +69,21 @@ function doubleMoney() {
 }
 console.log(doubleMoney(data));
 
-//Show the Millionaires:
+//Show the Millionaires (using .filter()):
 function showTheMillionaires() {
-  let mills = data.filter(function(person) {
+  data = data.filter(person => {
     if (person.money > 1000000) {
       return {...person};
     }
-  });
-  console.log(mills)
+  })
+  updateDOM();
+  // let mills = data.filter(function(person) {
+  //   if (person.money > 1000000) {
+  //     return {...person};
+  //   }
+  // });
+  // console.log(mills);
+  
 }
 
 
