@@ -1,5 +1,6 @@
 //DOM Elements
 const main = document.getElementById('main');
+const mainBottomLine = document.getElementById('main-bottomline');
 const addUserButton = document.getElementById('add-user');
 const doubleBtn = document.getElementById('double-money');
 const showMillionairesBtn = document.getElementById('show-millionaires');
@@ -8,6 +9,7 @@ const calculateWeatlthBtn = document.getElementById('calculate-wealth');
 
 
 let data = [];
+let sum = 100;
 
 //Fetch from generate random user from API
 // "https://randomuser.me/"
@@ -45,7 +47,7 @@ console.log(data);
 
 
 //Update the DOM:
-function updateDOM(providedData = data) {
+function updateDOM(providedData = data, providedSum = sum) {
   //Clear main DIV tag
   main.innerHTML = '<h2><strong>Personal</strong> Wealth</h2>';
   console.log(main.innerHTML);
@@ -57,7 +59,15 @@ function updateDOM(providedData = data) {
     
     main.appendChild(element);
   });
+
+  mainBottomLine.innerHTML = '<h3><strong>The Bottom Line:</strong></h3>';
+  if (providedSum > 0) {
+    mainBottomLine.innerHTML = `<h3><strong>The Bottom Line:</strong> ${moneyFormat(providedSum)}</h3>`;
+  }
+
 }
+
+//Get the SUM of All:
 
 //Double the Money:
 function doubleMoney() {
@@ -67,7 +77,7 @@ function doubleMoney() {
   updateDOM(); //This is actually doing something behind the seens
   //While it cannot be seen, it is mapping through the data displayed and updating the DOM with our information
 }
-console.log(doubleMoney(data));
+// console.log(doubleMoney(data));
 
 //Show the Millionaires (using .filter()):
 function showTheMillionaires() {
@@ -75,7 +85,7 @@ function showTheMillionaires() {
     if (person.money > 1000000) {
       return {...person};
     }
-  })
+  });
   updateDOM();
   // let mills = data.filter(function(person) {
   //   if (person.money > 1000000) {
@@ -119,4 +129,6 @@ sortBtn.addEventListener('click', (e) => {
 showMillionairesBtn.addEventListener('click', (e) => {
   showTheMillionaires();
 });
-
+// calculateWeatlthBtn.addEventListener('click', (e) => {
+//   sumOfWealth();
+// })

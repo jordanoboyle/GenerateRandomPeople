@@ -39,6 +39,14 @@ body {
   width: 800px;
 }
 
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 100%;
+  width: 800px;
+}
+
 aside {
   padding: 10px 20px;
   width: 250px;
@@ -87,7 +95,7 @@ h1 {
 
 h3 {
   background-color: white;
-  border-bottom: 12px dotted rebeccapurple;
+  border-bottom: 12px double rebeccapurple;
   padding: 10px;
   display: flex;
   justify-content: space-between;
